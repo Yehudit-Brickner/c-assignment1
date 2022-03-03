@@ -38,12 +38,12 @@ void mat(int a, int b, char c, char d ){
       //  cout << "pasthalf: "<< pasthalf << "  j: "<< j<<  endl;
         if(j<rowhalf){
             if(j%2==0){
-                for (int k= j+1; k<=b-j;k++){
+                for (int k= j+1; k<a-j-1;k++){
                     arr[k]=true;
                 }
             }
             else{
-                for (int k= j+1; k<=b-j;k++){
+                for (int k= j+1; k<a-j-1;k++){
                     arr[k]=false;
                 } 
             }
@@ -71,27 +71,27 @@ void mat(int a, int b, char c, char d ){
                     }
             }
         }
-    }
-    // %%%%%
-    // %---%
-    // %%%%%
-  
+    }  
 }
 
+/*
+for long and thin try following the middle of both width and hight;
 
+
+*/
 int main(){
-    mat(9,7,'%','-'); // works
-    cout << "\n"<< endl;
-    // mat(3,3,'%','-'); // not working
+    // mat(9,7,'%','-'); // works
+    // cout << "\n"<< endl;
+    // mat(3,3,'%','-'); //  works
     // cout << " \n"<< endl;
-    mat(1,1,'%','-'); //works
-    cout << " \n"<< endl;
-    mat(1,3,'%','-'); // works
-    cout << " \n"<< endl;
-    mat(3,1,'%','-'); // works
-    cout << "\n "<< endl; 
+    // mat(1,1,'%','-'); //works
+    // cout << " \n"<< endl;
+    // mat(1,3,'%','-'); // works
+    // cout << " \n"<< endl;
+    // mat(3,1,'%','-'); // works
+    // cout << "\n "<< endl; 
     // mat(7,3,'%','-'); // not working
-    cout << "\n "<< endl;
+    // cout << "\n "<< endl;
     mat(5,13,'%','-'); // not working
 
     return 0;
