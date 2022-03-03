@@ -33,9 +33,9 @@ string nospaces(string input) {
 TTEST_CASE("tiny"){
 	CHECK(nospaces(mat(1, 1, '@', '-')) == nospaces("@"));
 	
-	CHECK(nospaces(mat(1, 1, '&', '*')) == nospaces("&&&"));
+	CHECK(nospaces(mat(3, 1, '&', '*')) == nospaces("&&&"));
 	
-	CHECK(nospaces(mat(1, 1, '&', '*')) == nospaces("&\n
+	CHECK(nospaces(mat(1, 3, '&', '*')) == nospaces("&\n
 													 &\n
 													 &"));
 
