@@ -17,20 +17,24 @@ using namespace ariel;
 #include <algorithm>
 using namespace std;
 
+
+namespace ariel{
+
 /**
  * Returns the input string without the whitespace characters: space, newline and tab.
  * Requires std=c++2a.
  */
-string nospaces(string input) {
-	std::erase(input, ' ');
-	std::erase(input, '\t');
-	std::erase(input, '\n');
-	std::erase(input, '\r');
-	return input;
+	string nospaces(string input) {
+		std::erase(input, ' ');
+		std::erase(input, '\t');
+		std::erase(input, '\n');
+		std::erase(input, '\r');
+		return input;
+	}
 }
 
 
-TTEST_CASE("tiny"){
+TEST_CASE("tiny"){
 	CHECK(nospaces(mat(1, 1, '@', '-')) == nospaces("@"));
 	
 	CHECK(nospaces(mat(3, 1, '&', '*')) == nospaces("&&&"));
