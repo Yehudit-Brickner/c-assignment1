@@ -312,25 +312,26 @@ for long and thin try following the middle of both width and hight;
 
 int main(){
 
-    mat1(9,7,'%','-'); // works
-    cout << "\n"<< endl;
-    mat1(3,3,'+','-'); //  works
-    cout << " \n"<< endl;
-    mat1(1,1,'^','-'); //works
-    cout << " \n"<< endl;
-    mat1(1,3,'&','*'); // works
-    cout << " \n"<< endl;
-    mat1(3,1,'$','+'); // works
-    cout << "\n "<< endl; 
-    mat1(7,3,'/','-'); 
-    cout << "\n "<< endl;
-    mat1(5,9,'@','*'); 
-    cout << " \n"<< endl;
-    mat1(5,11,'@','*'); 
-    cout << " \n"<< endl;
-    mat1(7,21,'@','*'); 
-    cout << " \n"<< endl;
-    mat1(11,5,'@','*'); 
+    mat1(-5,3,'%','-'); // works
+    mat1(7,11,'*','*');
+    // cout << "\n"<< endl;
+    // mat1(3,3,'+','-'); //  works
+    // cout << " \n"<< endl;
+    // mat1(1,1,'^','-'); //works
+    // cout << " \n"<< endl;
+    // mat1(1,3,'&','*'); // works
+    // cout << " \n"<< endl;
+    // mat1(3,1,'$','+'); // works
+    // cout << "\n "<< endl; 
+    // mat1(7,3,'/','-'); 
+    // cout << "\n "<< endl;
+    // mat1(5,9,'@','*'); 
+    // cout << " \n"<< endl;
+    // mat1(5,11,'@','*'); 
+    // cout << " \n"<< endl;
+    // mat1(7,21,'@','*'); 
+    // cout << " \n"<< endl;
+    // mat1(11,5,'@','*'); 
 
     return 0;
 }
