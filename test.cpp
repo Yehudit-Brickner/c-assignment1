@@ -85,7 +85,7 @@ TEST_CASE("small rectangel") {
 													 @-------@\n
 													 @@@@@@@@@"));
 	
-	CHECK(nospaces(mat(5, 11, '&', '-')) == nospaces("&&&&&&&&&&&\n
+	CHECK(nospaces(mat(11, 5, '&', '-')) == nospaces("&&&&&&&&&&&\n
 													  &---------&\n
 													  &-&&&&&&&-&\n
 													  &---------&\n
@@ -109,6 +109,35 @@ TEST_CASE("big rectangel"){
 													   *!!!!!!!!!!!!!!!!!!!!!!!*\n
 													   *************************"));
 }
+
+
+TEST_CASE("long or wide rectangel"){
+	CHECK(nospaces(mat(5, 15, '-', '#')) == nospaces("-----\n
+													  -###-\n
+													  -#-#-\n
+													  -#-#-\n
+													  -#-#-\n
+													  -#-#-\n
+													  -#-#-\n
+													  -#-#-\n
+													  -#-#-\n
+													  -#-#-\n
+													  -#-#-\n
+													  -#-#-\n
+													  -#-#-\n
+													  -###-\n
+													  -----"));
+
+	CHECK(nospaces(mat(21, 7, '-', '+')) == nospaces("---------------------\n
+													  -+++++++++++++++++++-\n
+													  -+-----------------+-\n
+													  -+++++++++++++++++++-\n
+													  ---------------------"));
+
+}
+
+
+
 
 TEST_CASE("bad input even") {
     CHECK_THROWS(mat(10, 5, '$', '%'));
@@ -152,4 +181,6 @@ TEST_CASE("wrong parameters"){
 	CHECK_THROWS(mat(3.5, 7, '$', '%'));	//  first variable not an int
 
 	CHECK_THROWS(mat(5, 1.4, '$', '%'));	//  second variable not an int
+
+	CHECK_THROWS(mat(5, 5, '..', '%'));	    //  third variable not an char
 }
