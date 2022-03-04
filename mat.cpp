@@ -210,6 +210,7 @@ void matreg(int a, int b, char c, char d){
     int pasthalfr=0;
     int colhalf=a/2;
     int x=colhalf;
+    int y=1;
 
     for (int i=0; i< a; i++){
         arr[i]=false;
@@ -227,37 +228,53 @@ void matreg(int a, int b, char c, char d){
         cout << endl;
         //  cout << "pasthalfr: "<< pasthalfr << "  j: "<< j<<  endl;
         if(j<rowhalf){
+
             if(j%2==0){
-                for (int k= j+1; k<a-j-1;k++)
+                for (int k= y; k<a-y;k++)
                     arr[k]=true;
             }
             else{
-                for (int k= j+1; k<a-j-1;k++)
+                for (int k= y; k<a-y;k++)
                     arr[k]=false; 
             }
+            y++;
         }
         else{
-            pasthalfr++;
-            if(j<b-2){
-                if(j%2==0){
-                    for (int k=j-pasthalfr;k<a-j+pasthalfr;k++)
-                        arr[k]=true;       
-                }
-                else{   
-                    for (int k= j-pasthalfr; k<a-j+pasthalfr;k++)
-                        arr[k]=false;
-                }
+            y--;
+            for( int k=y; k<a-y;k++){
+                 if (arr[k]==true)
+                    arr[k]=false;
+                else 
+                    arr[k]=true; 
             }
-            else{
-                if(j%2==0){
-                    for (int k=j-pasthalfr-2;k<a-j+pasthalfr+1;k++)
-                        arr[k]=true;       
-                }
-                else{   
-                    for (int k= j-pasthalfr-2; k<a-j+pasthalfr+1;k++)
-                        arr[k]=false;
-                }
-            }
+            // pasthalfr++;
+
+            // if(j<b-2){
+            //    // if(j%2==0){
+            //         for (int k=j-pasthalfr;k<a-j+pasthalfr;k++){
+            //         if(arr[k]==false)
+            //             arr[k]=true;  
+            //         else
+            //             arr[k]=false;     
+            //     }
+            //    // else{   
+            //     //     for (int k= j-pasthalfr; k<a-j+pasthalfr;k++)
+            //     //         arr[k]=false;
+            //     // }
+            // }
+            // else{
+            //     if(j%2==0){
+            //         for (int k=j-pasthalfr-2;k<a-j+pasthalfr+1;k++)
+            //             if (arr[k]==true)
+            //                 arr[k]=false;
+            //             else 
+            //                 arr[k]=true;       
+            //     }
+            //     // else{   
+            //     //     for (int k= j-pasthalfr-2; k<a-j+pasthalfr+1;k++)
+            //     //         arr[k]=false;
+            //     // }
+            // }
         }
     }  
 
@@ -344,26 +361,32 @@ for long and thin try following the middle of both width and hight;
 
 
 int main(){
-    mat(-5,3,'%','-');
-    mat(7,11,'*','*');
-    cout << "\n"<< endl;
-    mat(3,3,'+','-'); 
-    cout << " \n"<< endl;
-    mat(1,1,'^','-'); 
-    cout << " \n"<< endl;
-    mat(1,3,'&','*'); 
-    cout << " \n"<< endl;
-    mat(3,1,'$','+'); 
-    cout << "\n "<< endl; 
-    mat(7,3,'/','-'); 
-    cout << "\n "<< endl;
-    mat(5,9,'@','*'); 
-    cout << " \n"<< endl;
-    mat(5,11,'@','*'); 
-    cout << " \n"<< endl;
-    mat(7,21,'@','*'); 
-    cout << " \n"<< endl;
-    mat(11,5,'@','*'); 
+    // // mat(-5,3,'%','-');
+    // mat(15,11,'*','/');
+    // cout << "\n"<< endl;
+    // mat(3,3,'+','-'); 
+    // cout << " \n"<< endl;
+    // mat(1,1,'^','-'); 
+    // cout << " \n"<< endl;
+    // mat(1,3,'&','*'); 
+    // cout << " \n"<< endl;
+    // mat(3,1,'$','+'); 
+    // cout << "\n "<< endl; 
+    // mat(7,3,'/','-'); 
+    // cout << "\n "<< endl;
+    // mat(5,9,'@','*'); 
+    // cout << " \n"<< endl;
+    // mat(5,11,'@','*'); 
+    // cout << " \n"<< endl;
+    // mat(7,21,'@','*'); 
+    // cout << " \n"<< endl;
+    // mat(11,5,'@','*'); 
+   
+   
+    // mat(47,25,'*','$');
+    // mat(25,47,'*','$');
+    // mat(77, 11, '-', '+');
+    mat(15, 83, '!', '@');
 
 
     return 0;
