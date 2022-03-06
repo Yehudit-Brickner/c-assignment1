@@ -357,107 +357,39 @@ void mat(int a, int b, char c, char d){
 
 
     
-    /*
-    we will create an array of booleans the length of the matrix.
-    we will create some vals.
-    rowhalf= half the rows lower value.
-    colhalf= half the columns lower value.
-    counter= colhalf
-    we will initiate the array with all values being false.
-    we will create a nested for loop.
-    the outer loop representing the rows and the inner loop the columns.
-    we will go through the array, 
-    if the value is false we will print the first char else we will print the second char.
-    we will go down a line. and then update the array.
-    if the row is smaller or equal to half the columns of bigger or equal to (the amout of columns - half the columns -1).
-        if the row is smaller the half the rows
-            then we check if the row is odd or even.
-            in both cases we will create a for loop from the row+1, to (the amount of columns - the row -1)
-                if it is even we will change the value to true.
-                if it is odd we will change the value to false.
-        else we will do a for loop from counter to (the amount of columns -counter)
-        if the value is true we willl change to false and if false we change to true.
-        than we will decrease the counter by 1.
-    else we dont need to change what os printed because the rug is a much longer than it is wide. 
-    */
-
-    bool arr [a];
-     
-    int rowhalf=b/2;
-    int colhalf=a/2;
-    int counter=colhalf;
-
-    for (int i=0; i< a; i++){
-        arr[i]=false;
-    }
-    for (int j=0;j<b; j++){ // rows
-       for (int i=0; i< a; i++){ // columns
-            if(arr[i]==false){
-                cout << c;
-            }
-            else{
-                cout << d;
-            }
-        }
-    cout << endl;
-    //  cout << "pasthalfr: "<< pasthalfr << "  j: "<< j<<  endl;
-        if (j<colhalf || j>= b-colhalf-1){ // if not in this range we dont need to change what is printed
-            if(j<rowhalf){
-                if(j%2==0){
-                    for (int k= j+1; k<a-j-1;k++)
-                        arr[k]=true;
-                }
-                else{
-                    for (int k= j+1; k<a-j-1;k++)
-                        arr[k]=false; 
-                }
-            }
-            else{
-                for (int y=counter; y< a-counter;y++){
-                    if(arr[y]==true){
-                       arr[y]=false; 
-                    }
-                    else{
-                        arr[y]=true;
-                    }
-                }
-                counter--;                  
-            }
-        }  
-    }
-
-}
+    
+  
 
 
 
 
 int main(){
-    // // mat(-5,3,'%','-');
+    mat(-5,3,'%','-');
     // mat(111,57,'*','/');
     // cout << "\n"<< endl;
-    mat(3,3,'+','-'); 
-    cout << " \n"<< endl;
-    mat(1,1,'^','-'); 
-    cout << " \n"<< endl;
-    mat(1,3,'&','*'); 
-    cout << " \n"<< endl;
-    mat(3,1,'$','+'); 
-    cout << "\n "<< endl; 
-    mat(7,3,'/','-'); 
-    cout << "\n "<< endl;
-    mat(7,9,'@','*'); 
-    cout << " \n"<< endl;
-    mat(5,11,'@','*'); 
+    // mat(3,3,'+','-'); 
+    // cout << " \n"<< endl;
+    // mat(1,1,'^','-'); 
+    // cout << " \n"<< endl;
+    // mat(1,3,'&','*'); 
+    // cout << " \n"<< endl;
+    // mat(3,1,'$','+'); 
+    // cout << "\n "<< endl; 
+    // mat(7,3,'/','-'); 
+    // cout << "\n "<< endl;
+    // mat(7,9,'@','*'); 
+    // cout << " \n"<< endl;
+    // mat(5,11,'@','*'); 
     // cout << " \n"<< endl;
     // mat(7,21,'@','*'); 
     // cout << " \n"<< endl;
-    // mat(11,5,'@','*'); 
+    mat(11,5,'*','*'); 
    
    
-    // mat(47,25,'*','$');
-    // mat(25,47,'*','$');
-    // mat(77, 11, '-', '+');
-    // mat(15, 83, '!', '@');
+    mat(47,25,'*','$');
+    mat(25,47,'*','$');
+    mat(77, 11, '-', '+');
+    mat(15, 83, '!', '@');
 
 
     return 0;
