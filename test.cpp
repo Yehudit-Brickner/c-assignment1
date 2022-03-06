@@ -9,6 +9,9 @@
  * Date: 2021-02
  */
 
+#ifndef DOCTEST_CHECK
+#define  DOCTEST_CHECK
+
 #include "doctest.h"
 #include "mat.hpp"
 using namespace ariel;
@@ -17,6 +20,7 @@ using namespace ariel;
 #include <algorithm>
 using namespace std;
 
+#endif
 
 namespace ariel{
 
@@ -87,7 +91,7 @@ TEST_CASE("small rectangel") {
 													 @-@---@-@\n
 													 @-@@@@@-@\n
 													 @-------@\n
-													 @@@@@@@@@"));
+													 @@@@@@@@@\n"));
 	
 	CHECK(nospaces(mat(11, 5, '&', '-')) == nospaces("&&&&&&&&&&&\n
 													  &---------&\n
@@ -312,3 +316,4 @@ TEST_CASE("wrong parameters"){
 
 	CHECK_THROWS(mat(5, 5, '..', '%'));	    //  third variable not an char
 }
+

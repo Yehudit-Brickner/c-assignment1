@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdexcept>
+#include <string>
 using namespace std;
 
 
@@ -19,7 +20,7 @@ using namespace std;
 
 /*
 
-// void mat1(int a, int b, char c, char d ){
+// void mat2(int a, int b, char c, char d ){
     
 //     if(a==0 || b==0){
 //         throw "error 1";
@@ -155,7 +156,7 @@ using namespace std;
 
 */
 
-void matreg(int a, int b, char c, char d){
+string matreg(int a, int b, char c, char d){
     
     /*
     we will create an array of booleans the length of the matrix.
@@ -185,6 +186,8 @@ void matreg(int a, int b, char c, char d){
     int colhalf=a/2;
     int counter=1;
 
+    string ans ="";
+
     for (int i=0; i< a; i++){
         arr[i]=false;
     }
@@ -192,13 +195,16 @@ void matreg(int a, int b, char c, char d){
     for (int j=0;j<b; j++){ // rows
         for (int i=0; i< a; i++){ // columns
             if(arr[i]==false){
-                cout << c;
+                //cout << c;
+                ans.push_back(c);
             }
             else{
-                cout << d;
+                //cout << d;
+                ans.push_back(d);
             }
         }
-        cout << endl;
+        //cout << endl;
+        ans.append("\n");
         //  cout << "pasthalfr: "<< pasthalfr << "  j: "<< j<<  endl;
         if(j<rowhalf){
 
@@ -222,12 +228,12 @@ void matreg(int a, int b, char c, char d){
             }
         }
     }  
-
+    return ans;
 }
 
 
 
-void matlong(int a, int b, char c, char d){
+string matlong(int a, int b, char c, char d){
     
     /*
     we will create an array of booleans the length of the matrix.
@@ -259,19 +265,24 @@ void matlong(int a, int b, char c, char d){
     int colhalf=a/2;
     int counter=colhalf;
 
+    string ans ="";
+
     for (int i=0; i< a; i++){
         arr[i]=false;
     }
     for (int j=0;j<b; j++){ // rows
        for (int i=0; i< a; i++){ // columns
             if(arr[i]==false){
-                cout << c;
+                //cout << c;
+                ans.push_back(c);
             }
             else{
-                cout << d;
+                //cout << d;
+                ans.push_back(d);
             }
         }
-    cout << endl;
+    //cout << endl;
+    ans.append("\n");
     //  cout << "pasthalfr: "<< pasthalfr << "  j: "<< j<<  endl;
         if (j<colhalf || j>= b-colhalf-1){ // if not in this range we dont need to change what is printed
             if(j<rowhalf){
@@ -297,12 +308,12 @@ void matlong(int a, int b, char c, char d){
             }
         }  
     }
-
+    return ans;
 }
 
 
 
-void mat(int a, int b, char c, char d){
+string mat(int a, int b, char c, char d){
     /*
     we will incase the function with a try and catch.
     we will check for all reasons the function shoudnt run and throw exceptions.
@@ -328,33 +339,39 @@ void mat(int a, int b, char c, char d){
         else{
             cout << "rows : " << b << " columns : " << a << endl;
             if(a+4>b){
-                matreg(a,b,c,d);
+                return matreg(a,b,c,d);
             }
             else{
-                matlong(a,b,c,d);
+                return matlong(a,b,c,d);
             }
         }
     }
     catch(int e){
          if(e==1){
-            cout << "size of row or column is 0" << endl;
+           // cout << "size of row or column is 0" << endl;
+           return "size of row or column is 0";
         }
         if(e==2){
-            cout << "size of row or column is negatve" << endl;
+           // cout << "size of row or column is negatve" << endl;
+            return "size of row or column is negatve";
         }
         if(e==3){
-            cout << "size of row or column is even" << endl;
+           // cout << "size of row or column is even" << endl;
+           return "size of row or column is even";
         }
         if(e==4){
-            cout << "both symbols are tha sane" << endl;
+           // cout << "both symbols are tha same" << endl;
+           return "both symbols are tha same";
         }
     }
-   
+   return " there was an udiscovered problem";
 }
 
 
 
-
+// string mat(int a, int b, char c, char d){
+//     return " ";
+// }
 
     
     
@@ -364,32 +381,33 @@ void mat(int a, int b, char c, char d){
 
 
 int main(){
-    mat(-5,3,'%','-');
-    // mat(111,57,'*','/');
+   string s= mat(5,3,'%','-');
+   cout << s<< endl;
+    // mat1(111,57,'*','/');
     // cout << "\n"<< endl;
-    // mat(3,3,'+','-'); 
+    // mat1(3,3,'+','-'); 
     // cout << " \n"<< endl;
-    // mat(1,1,'^','-'); 
+    // mat1(1,1,'^','-'); 
     // cout << " \n"<< endl;
-    // mat(1,3,'&','*'); 
+    // mat1(1,3,'&','*'); 
     // cout << " \n"<< endl;
-    // mat(3,1,'$','+'); 
+    // mat1(3,1,'$','+'); 
     // cout << "\n "<< endl; 
-    // mat(7,3,'/','-'); 
+    // mat1(7,3,'/','-'); 
     // cout << "\n "<< endl;
-    // mat(7,9,'@','*'); 
+    // mat1(7,9,'@','*'); 
     // cout << " \n"<< endl;
-    // mat(5,11,'@','*'); 
+    // mat1(5,11,'@','*'); 
     // cout << " \n"<< endl;
-    // mat(7,21,'@','*'); 
+    // mat1(7,21,'@','*'); 
     // cout << " \n"<< endl;
-    mat(11,5,'*','*'); 
+    // mat1(11,5,'*','*'); 
    
    
-    mat(47,25,'*','$');
-    mat(25,47,'*','$');
-    mat(77, 11, '-', '+');
-    mat(15, 83, '!', '@');
+    // mat(47,25,'*','$');
+    // mat(25,47,'*','$');
+    // mat(77, 11, '-', '+');
+    // mat(15, 83, '!', '@');
 
 
     return 0;
