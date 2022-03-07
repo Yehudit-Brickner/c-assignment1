@@ -326,23 +326,23 @@ string ariel::mat(int a, int b, char c, char d){
     after that we will catch the exceptions and prnt out what was wrong.
     */
     
-    try{
+    //try{
         if(a==0 || b==0){
-            throw 1;
+            throw std::invalid_argument( "size of row or column is 0" );
         }
         else if(a<0 || b<0){
-            throw 2;
+            throw std::invalid_argument( "size of row or column is negatve" );
         }
         else if (a%2==0 || b%2==0){
-            throw 3;
+            throw std::invalid_argument( "Mat size is always odd" );
         }
         else if (c==d){
-            throw 4;
+            throw std::invalid_argument( "both symbols are tha same" );
         } 
 
         else{
             
-            cout << "rows : " << b << " columns : " << a << endl;
+            //cout << "rows : " << b << " columns : " << a << endl;
             if(a+4>b){
                 //return "call function matreg" ;
                 return matreg(a,b,c,d);
@@ -352,26 +352,26 @@ string ariel::mat(int a, int b, char c, char d){
                 return matlong(a,b,c,d);
             }
         }
-    }
-    catch(int e){
-         if(e==1){
-           // cout << "size of row or column is 0" << endl;
-           return "size of row or column is 0";
-        }
-        if(e==2){
-           // cout << "size of row or column is negatve" << endl;
-            return "size of row or column is negatve";
-        }
-        if(e==3){
-           // cout << "size of row or column is even" << endl;
-           return "size of row or column is even";
-        }
-        if(e==4){
-           // cout << "both symbols are tha same" << endl;
-           return "both symbols are tha same";
-        }
-    }
-   return "there was an udiscovered problem";
+   // }
+//     catch(int e){
+//          if(e==1){
+//            // cout << "size of row or column is 0" << endl;
+//            return "size of row or column is 0";
+//         }
+//         if(e==2){
+//            // cout << "size of row or column is negatve" << endl;
+//             return "size of row or column is negatve";
+//         }
+//         if(e==3){
+//            // cout << "size of row or column is even" << endl;
+//            return "size of row or column is even";
+//         }
+//         if(e==4){
+//            // cout << "both symbols are tha same" << endl;
+//            return "both symbols are tha same";
+//         }
+//     }
+//    return "there was an udiscovered problem";
 }
 
 
