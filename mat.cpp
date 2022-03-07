@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <string>
+#include "mat.hpp"
 using namespace std;
 
 
@@ -156,7 +157,7 @@ using namespace std;
 
 */
 
-string matreg(int a, int b, char c, char d){
+string ariel::matreg( int a, int b, char c, char d){
     
     /*
     we will create an array of booleans the length of the matrix.
@@ -233,7 +234,7 @@ string matreg(int a, int b, char c, char d){
 
 
 
-string matlong(int a, int b, char c, char d){
+string ariel::matlong(int a, int b, char c, char d){
     
     /*
     we will create an array of booleans the length of the matrix.
@@ -313,7 +314,7 @@ string matlong(int a, int b, char c, char d){
 
 
 
-string mat(int a, int b, char c, char d){
+string ariel::mat(int a, int b, char c, char d){
     /*
     we will incase the function with a try and catch.
     we will check for all reasons the function shoudnt run and throw exceptions.
@@ -337,11 +338,14 @@ string mat(int a, int b, char c, char d){
         } 
 
         else{
+            
             cout << "rows : " << b << " columns : " << a << endl;
             if(a+4>b){
+                
                 return matreg(a,b,c,d);
             }
             else{
+            
                 return matlong(a,b,c,d);
             }
         }
@@ -364,14 +368,11 @@ string mat(int a, int b, char c, char d){
            return "both symbols are tha same";
         }
     }
-   return " there was an udiscovered problem";
+   return "there was an udiscovered problem";
 }
 
 
 
-// string mat(int a, int b, char c, char d){
-//     return " ";
-// }
 
     
     
@@ -381,33 +382,37 @@ string mat(int a, int b, char c, char d){
 
 
 int main(){
-   string s= mat(5,3,'%','-');
-   cout << s<< endl;
-    // mat1(111,57,'*','/');
-    // cout << "\n"<< endl;
-    // mat1(3,3,'+','-'); 
-    // cout << " \n"<< endl;
-    // mat1(1,1,'^','-'); 
-    // cout << " \n"<< endl;
-    // mat1(1,3,'&','*'); 
-    // cout << " \n"<< endl;
-    // mat1(3,1,'$','+'); 
-    // cout << "\n "<< endl; 
-    // mat1(7,3,'/','-'); 
-    // cout << "\n "<< endl;
-    // mat1(7,9,'@','*'); 
-    // cout << " \n"<< endl;
-    // mat1(5,11,'@','*'); 
-    // cout << " \n"<< endl;
-    // mat1(7,21,'@','*'); 
-    // cout << " \n"<< endl;
-    // mat1(11,5,'*','*'); 
+//    string s= mat(5,3,'%','-');
+   cout << ariel::mat(5,3,'-','+');
+//     string s= mat(111,57,'*','/');
+//     std::cout << s<<"\n"<< endl;
+//    s= mat(3,3,'+','-'); 
+//     cout << s<<" \n"<< endl;
+//   s=  mat(1,1,'^','-'); 
+//     cout << s<<" \n"<< endl;
+//  s=   mat(1,3,'&','*'); 
+//     cout << s<<" \n"<< endl;
+//    s= mat(3,1,'$','+'); 
+//     cout << s<<"\n "<< endl; 
+//    s= mat(7,3,'/','-'); 
+//     cout <<s<< "\n "<< endl;
+//    s= mat(7,9,'@','*'); 
+//     cout << s<<" \n"<< endl;
+//   s=  mat(5,11,'@','*'); 
+//     cout <<s<< " \n"<< endl;
+//    s= mat(7,21,'@','*'); 
+//     cout << s<<" \n"<< endl;
+//    s= mat(11,5,'*','*'); 
+//     cout << s<<" \n"<< endl;
    
-   
-    // mat(47,25,'*','$');
-    // mat(25,47,'*','$');
-    // mat(77, 11, '-', '+');
-    // mat(15, 83, '!', '@');
+//     s=mat(47,25,'*','$');
+//      cout << s<<" \n"<< endl;
+//     s=mat(25,47,'*','$');
+//      cout << s<<" \n"<< endl;
+//     s=mat(77, 11, '-', '+');
+//      cout << s<<" \n"<< endl;
+//    s= mat(15, 83, '!', '@');
+//      cout << s<<" \n"<< endl;
 
 
     return 0;
