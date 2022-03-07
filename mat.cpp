@@ -190,7 +190,7 @@ string ariel::matreg( int a, int b, char c, char d){
     int colhalf=a/2;
     int counter=1;
 
-    string ans ="";
+    string ans;
 
     for (int i=0; i< a; i++){
         arr[i]=false;
@@ -198,7 +198,7 @@ string ariel::matreg( int a, int b, char c, char d){
 
     for (int j=0;j<b; j++){ // rows
         for (int i=0; i< a; i++){ // columns
-            if(arr[i]==false){
+            if(!arr[i]){
                 //cout << c;
                 ans.push_back(c);
             }
@@ -213,22 +213,26 @@ string ariel::matreg( int a, int b, char c, char d){
         if(j<rowhalf){
 
             if(j%2==0){
-                for (int k= counter; k<a-counter;k++)
+                for (int k= counter; k<a-counter;k++){
                     arr[k]=true;
+                }
             }
             else{
-                for (int k= counter; k<a-counter;k++)
-                    arr[k]=false; 
+                for (int k= counter; k<a-counter;k++){
+                    arr[k]=false;
+                } 
             }
             counter++;
         }
         else{
             counter--;
             for( int k=counter; k<a-counter;k++){
-                 if (arr[k]==true)
+                if (arr[k]){
                     arr[k]=false;
-                else 
-                    arr[k]=true; 
+                }
+                else{ 
+                    arr[k]=true;
+                } 
             }
         }
     }  
@@ -269,14 +273,14 @@ string ariel::matlong(int a, int b, char c, char d){
     int colhalf=a/2;
     int counter=colhalf;
 
-    string ans ="";
+    string ans;
 
     for (int i=0; i< a; i++){
         arr[i]=false;
     }
     for (int j=0;j<b; j++){ // rows
        for (int i=0; i< a; i++){ // columns
-            if(arr[i]==false){
+            if(!arr[i]){
                 //cout << c;
                 ans.push_back(c);
             }
@@ -291,17 +295,19 @@ string ariel::matlong(int a, int b, char c, char d){
         if (j<colhalf || j>= b-colhalf-1){ // if not in this range we dont need to change what is printed
             if(j<rowhalf){
                 if(j%2==0){
-                    for (int k= j+1; k<a-j-1;k++)
+                    for (int k= j+1; k<a-j-1;k++){
                         arr[k]=true;
+                    }
                 }
                 else{
-                    for (int k= j+1; k<a-j-1;k++)
+                    for (int k= j+1; k<a-j-1;k++){
                         arr[k]=false; 
+                    }
                 }
             }
             else{
                 for (int y=counter; y< a-counter;y++){
-                    if(arr[y]==true){
+                    if(arr[y]){
                        arr[y]=false; 
                     }
                     else{
@@ -330,13 +336,13 @@ string ariel::mat(int a, int b, char c, char d){
         if(a==0 || b==0){
             throw std::invalid_argument( "size of row or column is 0" );
         }
-        else if(a<0 || b<0){
+        if(a<0 || b<0){
             throw std::invalid_argument( "size of row or column is negatve" );
         }
-        else if (a%2==0 || b%2==0){
+        if (a%2==0 || b%2==0){
             throw std::invalid_argument( "Mat size is always odd" );
         }
-        else if (c==d){
+        if (c==d){
             throw std::invalid_argument( "both symbols are tha same" );
         } 
 
