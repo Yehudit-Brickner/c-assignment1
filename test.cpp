@@ -37,28 +37,44 @@ namespace ariel{
 }
 
 
+
+TEST_CASE("should fail"){
+	CHECK(nospaces(mat(3, 3, '+', '*')) == nospaces("+++"
+													 "/*/"
+													 "+++"));
+
+	CHECK(nospaces(mat(5, 5, '^', '$')) == nospaces("^^^^^"
+													 "^$+$^"
+													 "^$^$^"
+													 "^$++$^"
+													 "^^^^^"));	
+}
+
+
+
 TEST_CASE("tiny"){
 	CHECK(nospaces(mat(1, 1, '@', '-')) == nospaces("@"));
 	
 	CHECK(nospaces(mat(3, 1, '&', '*')) == nospaces("&&&"));
 	
-	CHECK(nospaces(mat(1, 3, '&', '*')) == nospaces("&"
-													 "&"
-													 "&"));
+	CHECK(nospaces(mat(1, 3, '&', '*')) == nospaces("&\n"
+													 "&\n"
+													 "&\n"));
 
 }
 
 TEST_CASE("small square"){
-	CHECK(nospaces(mat(3, 3, '+', '*')) == nospaces("+++"
-													 "+*+"
+	CHECK(nospaces(mat(3, 3, '+', '*')) == nospaces("+++\n"
+													 "+*+\n"
 													 "+++"));
 
-	CHECK(nospaces(mat(5, 5, '^', '$')) == nospaces("^^^^^"
-													 "^$$$^"
-													 "^$^$^"
-													 "^$$$^"
+	CHECK(nospaces(mat(5, 5, '^', '$')) == nospaces("^^^^^\n"
+													 "^$$$^\n"
+													 "^$^$^\n"
+													 "^$$$^\n"
 													 "^^^^^"));	
 }
+
 
 TEST_CASE("big square"){
 	CHECK(nospaces(mat(19, 19, '@', '-')) == nospaces("@@@@@@@@@@@@@@@@@@@\n"
@@ -308,11 +324,5 @@ TEST_CASE("more then 1 problem in the input"){
 	CHECK_THROWS(mat(0, 0, '$', '$')); // zero and same symbol
 }
 
-// TEST_CASE("wrong parameters"){
-// 	CHECK_THROWS(mat(3.5, 7, '$', '%'));	//  first variable not an int
 
-// 	CHECK_THROWS(mat(5, 1.4, '$', '%'));	//  second variable not an int
-
-// 	CHECK_THROWS(mat(5, 5, '..', '%'));	    //  third variable not an char
-// }
 
