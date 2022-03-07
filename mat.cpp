@@ -18,15 +18,16 @@ string ariel::matreg( int a, int b, char c, char d){
     /*
     we will create an array of booleans the length of the matrix.
     we will create some vals.
-    rowhalf= half the rows lower value.
-    colhalf= half the columns lower value.
-    counter= 1
+    int rowhalf= half the rows lower value.
+    int colhalf= half the columns lower value.
+    int counter= 1
+    string ans
     we will initiate the array with all values being false.
     we will create a nested for loop.
     the outer loop representing the rows and the inner loop the columns.
     we will go through the array, 
-    if the value is false we will print the first char else we will print the second char.
-    we will go down a line. and then update the array.
+    if the value is false we will add the first char to the string else we will add the second char to the string.
+    we will add '\n' to the string, and then update the array.
     if the row is smaller the half the rows
         then we check if the row is odd or even.
         in both cases we will create a for loop from the counter, to (the amount of columns - counter)
@@ -34,7 +35,7 @@ string ariel::matreg( int a, int b, char c, char d){
                 if it is odd we will change the value to false.
     else we will decremenrt the counter
         then create a for loop from counter to (the amount of columns - counter)
-        if the array is trye we changeto false, and if is false we will change to true.
+        if the array is true we will change to false, and if is false we will change to true.
     */
     
     
@@ -99,15 +100,16 @@ string ariel::matlong(int a, int b, char c, char d){
     /*
     we will create an array of booleans the length of the matrix.
     we will create some vals.
-    rowhalf= half the rows lower value.
-    colhalf= half the columns lower value.
-    counter= colhalf
+    int rowhalf= half the rows lower value.
+    int colhalf= half the columns lower value.
+    int counter= colhalf
+    string ans
     we will initiate the array with all values being false.
     we will create a nested for loop.
     the outer loop representing the rows and the inner loop the columns.
     we will go through the array, 
-    if the value is false we will print the first char else we will print the second char.
-    we will go down a line. and then update the array.
+    if the value is false we will add the first char to the string else we will add the second char to the string.
+    we will add '\n' to the string, and then update the array.
     if the row is smaller or equal to half the columns of bigger or equal to (the amout of columns - half the columns -1).
         if the row is smaller the half the rows
             then we check if the row is odd or even.
@@ -117,7 +119,7 @@ string ariel::matlong(int a, int b, char c, char d){
         else we will do a for loop from counter to (the amount of columns -counter)
         if the value is true we willl change to false and if false we change to true.
         than we will decrease the counter by 1.
-    else we dont need to change what os printed because the rug is a much longer than it is wide. 
+    else we dont need to change what is added ti the string because the rug is a much longer than it is wide. 
     */
 
     bool arr [a];
@@ -178,11 +180,10 @@ string ariel::matlong(int a, int b, char c, char d){
 
 string ariel::mat(int a, int b, char c, char d){
     /*
-    we will incase the function with a try and catch.
+    
     we will check for all reasons the function shoudnt run and throw exceptions.
-    if no exception is thrown we will check if the matrix is a long matrix or regular matrix.
-    we need to know if is long so that we cam repeat the middle row as long as needed.
-    after that we will catch the exceptions and prnt out what was wrong.
+    if there is no reason to throw an exception we will check if the matrix is a long matrix or regular matrix.
+    we need to know if it is long so that we can repeat the middle row as long as needed.
     */
     
     //try{
