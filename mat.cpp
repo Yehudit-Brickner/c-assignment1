@@ -345,6 +345,9 @@ string ariel::mat(int a, int b, char c, char d){
         if (c==d){
             throw std::invalid_argument( "both symbols are tha same" );
         } 
+        if(c==' ' || c=='\n' || c=='\r' || c=='\t' ||d==' ' || d=='\n' || d=='\r' || d=='\t'){
+            throw std::invalid_argument( "invalid symbol" );
+        }
 
         else{
             

@@ -38,18 +38,6 @@ namespace ariel{
 
 
 
-TEST_CASE("should fail"){
-	CHECK(nospaces(mat(3, 3, '+', '*')) == nospaces("+++"
-													 "/*/"
-													 "+++"));
-
-	CHECK(nospaces(mat(5, 5, '^', '$')) == nospaces("^^^^^"
-													 "^$+$^"
-													 "^$^$^"
-													 "^$++$^"
-													 "^^^^^"));	
-}
-
 
 
 TEST_CASE("tiny"){
@@ -312,6 +300,24 @@ TEST_CASE("bad input negative") {
 
 TEST_CASE("bad input same symbol") {
     CHECK_THROWS(mat(10, 5, '%', '%'));
+}
+
+TEST_CASE("bad input illegal symbol") {
+    CHECK_THROWS(mat(10, 5, ' ', '%'));
+
+	CHECK_THROWS(mat(10, 5, '\n', '!'));
+
+	CHECK_THROWS(mat(10, 5, '\r', '*'));
+
+	CHECK_THROWS(mat(10, 5, '\t', '+'));
+	
+	CHECK_THROWS(mat(10, 5, '/', ' '));
+
+	CHECK_THROWS(mat(10, 5, '-', '\n'));
+
+	CHECK_THROWS(mat(10, 5, '+', '\r'));
+
+	CHECK_THROWS(mat(10, 5, '*', '\t'));
 }
 
 TEST_CASE("more then 1 problem in the input"){
