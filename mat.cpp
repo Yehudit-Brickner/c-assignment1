@@ -11,6 +11,13 @@ using namespace ariel;
 
 
 string ariel::matsame(int a, int b, char c){
+    /*
+    we will create the string ans.
+    we will create a nested for loop.
+    the outer loop representing the rows and the inner loop the columns.
+    we will add the char to the string the amount of column times and than add '\n'.
+    and repeat till we create a string representing the whole rug.
+    */
     string ans;
     for (int j=0;j<b; j++){ // rows
         for (int i=0; i< a; i++){ // columns
@@ -192,7 +199,8 @@ string ariel::mat(int a, int b, char c, char d){
     /*
     
     we will check for all reasons the function shoudnt run and throw exceptions.
-    if there is no reason to throw an exception we will check if the matrix is a long matrix or regular matrix.
+    if there is no reason to throw an exception we will check if the symbols are the same
+    else we will check if the matrix is a long matrix or regular matrix.
     we need to know if it is long so that we can repeat the middle row as long as needed.
     */
     
