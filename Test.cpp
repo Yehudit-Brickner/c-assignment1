@@ -13,10 +13,9 @@
 
 #include "doctest.h"
 #include "mat.hpp"
-using namespace ariel;
-
 #include <string>
 #include <algorithm>
+using namespace ariel;
 using namespace std;
 
 
@@ -61,6 +60,10 @@ TEST_CASE("small square"){
 													 "^$^$^\n"
 													 "^$$$^\n"
 													 "^^^^^"));	
+	CHECK(nospaces(mat(3, 3, '+', '+')) == nospaces("+++\n"
+													 "+++\n"
+													 "+++"));													 
+
 }
 
 
@@ -298,9 +301,7 @@ TEST_CASE("bad input negative") {
 	CHECK_THROWS(mat(-9, -2, '$', '%'));
 }
 
-TEST_CASE("bad input same symbol") {
-    CHECK_THROWS(mat(10, 5, '%', '%'));
-}
+
 
 TEST_CASE("bad input illegal symbol") {
     CHECK_THROWS(mat(10, 5, ' ', '%'));
@@ -321,13 +322,12 @@ TEST_CASE("bad input illegal symbol") {
 }
 
 TEST_CASE("more then 1 problem in the input"){
-	CHECK_THROWS(mat(-7, 5, '$', '$')); // negative and same symbol
     
 	CHECK_THROWS(mat(0, -2, '$', '%')); // zero and negative
 
 	CHECK_THROWS(mat(4, 0, '$', '%')); // zero and even
 
-	CHECK_THROWS(mat(0, 0, '$', '$')); // zero and same symbol
+	
 }
 
 

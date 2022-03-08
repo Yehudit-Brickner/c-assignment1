@@ -10,7 +10,17 @@ using namespace ariel;
 
 
 
-
+string ariel::matsame(int a, int b, char c){
+    string ans;
+    for (int j=0;j<b; j++){ // rows
+        for (int i=0; i< a; i++){ // columns
+        ans.push_back(c);
+        }
+         ans.append("\n");
+    }
+    return ans;
+   
+}
 
 
 string ariel::matreg( int a, int b, char c, char d){
@@ -196,9 +206,7 @@ string ariel::mat(int a, int b, char c, char d){
         if (a%2==0 || b%2==0){
             throw std::invalid_argument( "Mat size is always odd" );
         }
-        if (c==d){
-            throw std::invalid_argument( "both symbols are tha same" );
-        } 
+       
         if(c==' ' || c=='\n' || c=='\r' || c=='\t' ||d==' ' || d=='\n' || d=='\r' || d=='\t'){
             throw std::invalid_argument( "invalid symbol" );
         }
@@ -206,13 +214,18 @@ string ariel::mat(int a, int b, char c, char d){
         else{
             
             //cout << "rows : " << b << " columns : " << a << endl;
-            if(a+4>b){
-                //return "call function matreg" ;
-                return matreg(a,b,c,d);
+            if(c==d){
+                return matsame(a,b,c);
             }
             else{
-                //return "call function matlong";
-                return matlong(a,b,c,d);
+                if(a+4>b){
+                    //return "call function matreg" ;
+                    return matreg(a,b,c,d);
+                }
+                else{
+                    //return "call function matlong";
+                    return matlong(a,b,c,d);
+                }
             }
         }
    // }
