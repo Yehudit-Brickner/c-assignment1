@@ -9,8 +9,6 @@ using namespace ariel;
 
 
 
-
-
 string ariel::matsame(int a, int b, char c){
     /*
     we will create the string ans.
@@ -57,46 +55,36 @@ string ariel::matreg( int a, int b, char c, char d){
     */
     
     
-    //bool arr [a];
     std::vector<char> v;
     v.reserve(a);
     int rowhalf=b/2;
-    //int colhalf=a/2;
     int counter=1;
 
     string ans;
 
     for (int i=0; i< a; i++){
-        //arr[i]=false;
         v.push_back(c);
     }
 
     for (int j=0;j<b; j++){ // rows
         for (int i=0; i< a; i++){ // columns
-            //if(!arr[i]){
             if(v.at(i)==c){
-                //cout << c;
                 ans.push_back(c);
             }
             else{
-                //cout << d;
                 ans.push_back(d);
             }
         }
-        //cout << endl;
         ans.append("\n");
-        //  cout << "pasthalfr: "<< pasthalfr << "  j: "<< j<<  endl;
         if(j<rowhalf){
 
             if(j%2==0){
                 for (int k= counter; k<a-counter;k++){
-                    //arr[k]=true;
                     v.at(k)=d;
                 }
             }
             else{
                 for (int k= counter; k<a-counter;k++){
-                    //arr[k]=false;
                     v.at(k)=c;
                 } 
             }
@@ -105,13 +93,10 @@ string ariel::matreg( int a, int b, char c, char d){
         else{
             counter--;
             for( int k=counter; k<a-counter;k++){
-                //if (arr[k]){
                 if(v.at(k)==d){
-                    //arr[k]=false;
                     v.at(k)=c;
                 }
                 else{ 
-                   // arr[k]=true;
                     v.at(k)=d;
                 } 
             }
@@ -149,7 +134,7 @@ string ariel::matlong(int a, int b, char c, char d){
     else we dont need to change what is added ti the string because the rug is a much longer than it is wide. 
     */
 
-    //bool arr [a];
+
     std::vector<char> v;
     v.reserve(a);
     int rowhalf=b/2;
@@ -159,48 +144,37 @@ string ariel::matlong(int a, int b, char c, char d){
     string ans;
 
     for (int i=0; i< a; i++){
-       // arr[i]=false;
         v.push_back(c);
     }
     for (int j=0;j<b; j++){ // rows
        for (int i=0; i< a; i++){ // columns
-            //if(!arr[i]){
             if(v.at(i)==c){
-                //cout << c;
                 ans.push_back(c);
             }
             else{
-                //cout << d;
                 ans.push_back(d);
             }
         }
-    //cout << endl;
     ans.append("\n");
-    //  cout << "pasthalfr: "<< pasthalfr << "  j: "<< j<<  endl;
         if (j<colhalf || j>= b-colhalf-1){ // if not in this range we dont need to change what is printed
             if(j<rowhalf){
                 if(j%2==0){
                     for (int k= j+1; k<a-j-1;k++){
-                        //arr[k]=true;
                         v.at(k)=d;
                     }
                 }
                 else{
                     for (int k= j+1; k<a-j-1;k++){
-                        //arr[k]=false; 
                         v.at(k)=c;
                     }
                 }
             }
             else{
                 for (int y=counter; y< a-counter;y++){
-                    //if(arr[y]){
                     if(v.at(y)==d){
-                       //arr[y]=false; 
                        v.at(y)=c;
                     }
                     else{
-                        //arr[y]=true;
                         v.at(y)=d;
                     }
                 }
@@ -221,8 +195,7 @@ string ariel::mat(int a, int b, char c, char d){
     else we will check if the matrix is a long matrix or regular matrix.
     we need to know if it is long so that we can repeat the middle row as long as needed.
     */
-    
-    //try{
+   
         if(a==0 || b==0){
             throw std::invalid_argument( "size of row or column is 0" );
         }
@@ -236,44 +209,17 @@ string ariel::mat(int a, int b, char c, char d){
         if(c==' ' || c=='\n' || c=='\r' || c=='\t' ||d==' ' || d=='\n' || d=='\r' || d=='\t'){
             throw std::invalid_argument( "invalid symbol" );
         }
+        
+        if(c==d){
+            return matsame(a,b,c);
+        }    
+        
+        if(a+4>b){
+            return matreg(a,b,c,d);
+        }
+        
+        return matlong(a,b,c,d);
 
-        //else{
-            
-            //cout << "rows : " << b << " columns : " << a << endl;
-            if(c==d){
-                return matsame(a,b,c);
-            }
-            //else{
-                if(a+4>b){
-                    //return "call function matreg" ;
-                    return matreg(a,b,c,d);
-                }
-               // else{
-                    //return "call function matlong";
-                    return matlong(a,b,c,d);
-                //}
-           // }
-       // }
-   // }
-//     catch(int e){
-//          if(e==1){
-//            // cout << "size of row or column is 0" << endl;
-//            return "size of row or column is 0";
-//         }
-//         if(e==2){
-//            // cout << "size of row or column is negatve" << endl;
-//             return "size of row or column is negatve";
-//         }
-//         if(e==3){
-//            // cout << "size of row or column is even" << endl;
-//            return "size of row or column is even";
-//         }
-//         if(e==4){
-//            // cout << "both symbols are tha same" << endl;
-//            return "both symbols are tha same";
-//         }
-//     }
-//    return "there was an udiscovered problem";
 }
 
 
