@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <string>
+#include <vector>
 #include "mat.hpp"
 using namespace std;
 using namespace ariel;
@@ -56,20 +57,23 @@ string ariel::matreg( int a, int b, char c, char d){
     */
     
     
-    bool arr [a];
+    //bool arr [a];
+    std::vector<char> v;
     int rowhalf=b/2;
-    int colhalf=a/2;
+    //int colhalf=a/2;
     int counter=1;
 
     string ans;
 
     for (int i=0; i< a; i++){
-        arr[i]=false;
+        //arr[i]=false;
+        v.push_back(c);
     }
 
     for (int j=0;j<b; j++){ // rows
         for (int i=0; i< a; i++){ // columns
-            if(!arr[i]){
+            //if(!arr[i]){
+            if(v.at(i)==c){
                 //cout << c;
                 ans.push_back(c);
             }
@@ -85,12 +89,14 @@ string ariel::matreg( int a, int b, char c, char d){
 
             if(j%2==0){
                 for (int k= counter; k<a-counter;k++){
-                    arr[k]=true;
+                    //arr[k]=true;
+                    v.at(k)=d;
                 }
             }
             else{
                 for (int k= counter; k<a-counter;k++){
-                    arr[k]=false;
+                    //arr[k]=false;
+                    v.at(k)=c;
                 } 
             }
             counter++;
@@ -98,11 +104,14 @@ string ariel::matreg( int a, int b, char c, char d){
         else{
             counter--;
             for( int k=counter; k<a-counter;k++){
-                if (arr[k]){
-                    arr[k]=false;
+                //if (arr[k]){
+                    if(v.at(k)==d){
+                    //arr[k]=false;
+                    v.at(k)=c;
                 }
                 else{ 
-                    arr[k]=true;
+                   // arr[k]=true;
+                    v.at(k)=d;
                 } 
             }
         }
@@ -219,7 +228,7 @@ string ariel::mat(int a, int b, char c, char d){
             throw std::invalid_argument( "invalid symbol" );
         }
 
-        else{
+        //else{
             
             //cout << "rows : " << b << " columns : " << a << endl;
             if(c==d){
@@ -235,7 +244,7 @@ string ariel::mat(int a, int b, char c, char d){
                     return matlong(a,b,c,d);
                 }
             }
-        }
+       // }
    // }
 //     catch(int e){
 //          if(e==1){
