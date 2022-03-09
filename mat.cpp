@@ -105,7 +105,7 @@ string ariel::matreg( int a, int b, char c, char d){
             counter--;
             for( int k=counter; k<a-counter;k++){
                 //if (arr[k]){
-                    if(v.at(k)==d){
+                if(v.at(k)==d){
                     //arr[k]=false;
                     v.at(k)=c;
                 }
@@ -148,8 +148,8 @@ string ariel::matlong(int a, int b, char c, char d){
     else we dont need to change what is added ti the string because the rug is a much longer than it is wide. 
     */
 
-    bool arr [a];
-     
+    //bool arr [a];
+    std::vector<char> v;
     int rowhalf=b/2;
     int colhalf=a/2;
     int counter=colhalf;
@@ -157,11 +157,13 @@ string ariel::matlong(int a, int b, char c, char d){
     string ans;
 
     for (int i=0; i< a; i++){
-        arr[i]=false;
+       // arr[i]=false;
+        v.push_back(c);
     }
     for (int j=0;j<b; j++){ // rows
        for (int i=0; i< a; i++){ // columns
-            if(!arr[i]){
+            //if(!arr[i]){
+            if(v.at(i)==c){
                 //cout << c;
                 ans.push_back(c);
             }
@@ -177,22 +179,27 @@ string ariel::matlong(int a, int b, char c, char d){
             if(j<rowhalf){
                 if(j%2==0){
                     for (int k= j+1; k<a-j-1;k++){
-                        arr[k]=true;
+                        //arr[k]=true;
+                        v.at(k)=d;
                     }
                 }
                 else{
                     for (int k= j+1; k<a-j-1;k++){
-                        arr[k]=false; 
+                        //arr[k]=false; 
+                        v.at(k)=c;
                     }
                 }
             }
             else{
                 for (int y=counter; y< a-counter;y++){
-                    if(arr[y]){
-                       arr[y]=false; 
+                    //if(arr[y]){
+                    if(v.at(y)==d){
+                       //arr[y]=false; 
+                       v.at(y)=c;
                     }
                     else{
-                        arr[y]=true;
+                        //arr[y]=true;
+                        v.at(y)=d;
                     }
                 }
                 counter--;                  
