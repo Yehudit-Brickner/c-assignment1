@@ -59,6 +59,7 @@ string ariel::matreg( int a, int b, char c, char d){
     
     //bool arr [a];
     std::vector<char> v;
+    v.reserve(a);
     int rowhalf=b/2;
     //int colhalf=a/2;
     int counter=1;
@@ -150,6 +151,7 @@ string ariel::matlong(int a, int b, char c, char d){
 
     //bool arr [a];
     std::vector<char> v;
+    v.reserve(a);
     int rowhalf=b/2;
     int colhalf=a/2;
     int counter=colhalf;
@@ -241,16 +243,16 @@ string ariel::mat(int a, int b, char c, char d){
             if(c==d){
                 return matsame(a,b,c);
             }
-            else{
+            //else{
                 if(a+4>b){
                     //return "call function matreg" ;
                     return matreg(a,b,c,d);
                 }
-                else{
+               // else{
                     //return "call function matlong";
                     return matlong(a,b,c,d);
-                }
-            }
+                //}
+           // }
        // }
    // }
 //     catch(int e){
